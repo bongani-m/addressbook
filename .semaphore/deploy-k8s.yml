@@ -25,6 +25,8 @@ blocks:
       jobs:
       - name: Deploy
         commands:
+          - echo $HOME/env-production
+          - cat $HOME/env-production
           - source $HOME/env-production
           - envsubst < deployment.yml | tee deploy.yml
           - kubectl apply -f deploy.yml
